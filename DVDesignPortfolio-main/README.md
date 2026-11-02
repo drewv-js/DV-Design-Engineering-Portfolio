@@ -90,6 +90,23 @@ professional profile before launch.
 
 ## Hosting
 
+### GitHub Pages
+
+The repository includes `.github/workflows/deploy-pages.yml`. It publishes this
+directory as the site root on pushes to `main`, or via a manual workflow run.
+No install or build step is needed.
+
+In the repository's **Settings > Pages**, set **Source** to **GitHub Actions**.
+Then push to `main` or run **Deploy portfolio to GitHub Pages** from **Actions**.
+The workflow's deployment summary supplies the live URL. For this repository,
+the expected address is https://drewv-js.github.io/DVDesignPortfolio-main/.
+
+Only the inner `DVDesignPortfolio-main` directory is uploaded; the outer Git
+repository and workflow are not part of the deployed artifact. Relative assets
+and page links support hosting under the repository's URL prefix.
+
+### Other static hosts
+
 Upload this directory's contents to any static host, such as GitHub Pages,
 Netlify, or Cloudflare Pages. Select no framework or build command; the publish
 directory is the directory containing `index.html`. If deploying the outer
