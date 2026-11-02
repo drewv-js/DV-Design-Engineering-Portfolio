@@ -33,6 +33,10 @@ reduced-motion preferences.
 Without JavaScript the Design view remains available and the switch is hidden.
 The existing reduced-motion preference also applies to the Build view.
 
+A static portfolio-update banner appears below the header on the homepage and
+both case-study pages. Its colours follow the Design/Build palette. Remove the
+`site-notice` elements from all three pages when the announcement is no longer needed.
+
 ## Files
 
 - `index.html`: introduction, project previews, about text, and contact section.
