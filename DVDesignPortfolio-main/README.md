@@ -2,22 +2,21 @@
 
 A responsive, dependency-free portfolio built with HTML, CSS, and JavaScript.
 Warm ivory, forest green, and muted project colours keep the presentation simple
-and welcoming. All preview artwork is drawn with CSS; no external assets or fonts
-are required.
+and welcoming. Figma exports are stored locally; no external asset or font
+requests are required.
 
 ## Preview
 
 Open `index.html` in a modern browser, or serve this directory using a local
 static web server. No installation or build step is needed.
 
-## Content
-
 ## Design / Build views
 
 The labelled buttons beneath the hero headline select two views of the same portfolio:
-Design contains the original concept previews; Build features the working
-portfolio itself with an expandable implementation walkthrough. This is not a
-claim that the concept projects have been engineered.
+Design features the Figma design-system case study; Build features its engineering
+counterpart. Three Design slots and one Build slot retain their themed layouts
+with simple, non-interactive "In the works" labels. They have no fictional project
+names, artwork, briefs, or links.
 
 The introduction, work navigation, about copy, page title, and palette update
 together. Share `?view=design` or `?view=build` to open a specific view.
@@ -25,7 +24,7 @@ Back/Forward restore the selected view. Choices are URL-based, not stored or
 tracked. Both buttons support Tab and Enter/Space, expose their pressed state,
 and keep focus when selected. A live region announces changes.
 
-A subtle outer ring breathes continuously on load, with a 2.2-second cycle
+A subtle outer ring breathes continuously on load, with a 1.5-second cycle
 after a short initial delay.
 Hover, touch, or keyboard focus dismisses the cue for the rest of the page load.
 The ring does not move the layout or intercept clicks, and is disabled for
@@ -38,7 +37,7 @@ The existing reduced-motion preference also applies to the Build view.
 
 - `index.html`: introduction, project previews, about text, and contact section.
 - `styles.css`: responsive layout and original illustrative project artwork.
-- `script.js`: concept briefs and accessible native project dialogs.
+- `script.js`: portfolio view selection, URL state, and switch attention cue.
 - `design-system.html`: dedicated, scrollable Figma design-system showcase.
 - `design-system-build.html`: companion engineering case study, featured in Build.
 - `design-system.css`: project-page styling and its featured home-page card.
@@ -79,10 +78,8 @@ Repository actions in both sections link to the
 Public source access does not imply public npm package access, passing tests,
 or verified accessibility results.
 
-Kindred, Table Journey, and Form & Field are explicitly labelled concept
-placeholders, not completed projects. Replace their visuals and briefs with real
-project material as it becomes available. The personal introduction is draft
-copy and should be reviewed before publishing.
+Replace the "In the works" slots with real project material as it becomes
+available. They intentionally do not behave like completed project cards.
 
 Contact information has intentionally not been invented. Replace the contact
 section's holding text and project link with your preferred public email or

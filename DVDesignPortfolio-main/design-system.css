@@ -1,4 +1,11 @@
 .system-feature{grid-column:1/-1}
+.project-art.project-placeholder,.project-wide .project-art.project-placeholder,.build-placeholder .project-placeholder{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;position:relative;cursor:default}
+.project-placeholder::before{content:"";position:absolute;inset:20px;border:1px dashed currentColor;border-radius:4px;opacity:.18;pointer-events:none}
+.project-placeholder h3{font-size:23px;font-weight:400;letter-spacing:-.6px;margin:0}
+.placeholder-mark{font:300 35px/1 Arial,sans-serif;opacity:.5}
+.placeholder-status{font-size:9px;letter-spacing:1.6px;opacity:.75}
+.build-project.build-placeholder{display:block;background:#20382f}
+.build-placeholder .project-placeholder{min-height:320px;color:#b3c5bb;background:linear-gradient(#c9e6c606 1px,transparent 1px),linear-gradient(90deg,#c9e6c606 1px,transparent 1px);background-size:28px 28px}
 .project-wide .project-art.system-cover{height:400px;gap:40px;background:#e5e7ee;padding:35px 48px;justify-content:space-between;color:#343d68}
 .system-cover-copy{flex:0 1 36%;min-width:0}
 .system-cover-copy .eyebrow{font-size:9px;line-height:1.8}
