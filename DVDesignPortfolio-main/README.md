@@ -99,7 +99,7 @@ No install or build step is needed.
 In the repository's **Settings > Pages**, set **Source** to **GitHub Actions**.
 Then push to `main` or run **Deploy portfolio to GitHub Pages** from **Actions**.
 The workflow's deployment summary supplies the live URL. For this repository,
-the expected address is https://drewv-js.github.io/DVDesignPortfolio-main/.
+the expected address is https://drewv-js.github.io/DV-Design-Engineering-Portfolio/.
 
 Only the inner `DVDesignPortfolio-main` directory is uploaded; the outer Git
 repository and workflow are not part of the deployed artifact. Relative assets
