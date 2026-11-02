@@ -39,6 +39,45 @@ The existing reduced-motion preference also applies to the Build view.
 - `index.html`: introduction, project previews, about text, and contact section.
 - `styles.css`: responsive layout and original illustrative project artwork.
 - `script.js`: concept briefs and accessible native project dialogs.
+- `design-system.html`: dedicated, scrollable Figma design-system showcase.
+- `design-system-build.html`: companion engineering case study, featured in Build.
+- `design-system.css`: project-page styling and its featured home-page card.
+- `design-system.js`: optional image enlargement and section tracking.
+- `assets/design-system/`: five permanent PNG exports from the actual Figma file.
+
+## Design-system project
+
+The Design portfolio links to `design-system.html`. The page includes an overview,
+system relationships, selected tokens, Light/Dark comparisons, all 28 component
+page names grouped by purpose, Button and Textfield studies, and the composed
+Project Settings example. Desktop section navigation becomes a collapsible
+"On this page" menu on mobile. Image links work without JavaScript; with
+JavaScript they open native dialogs supporting Escape and focus restoration.
+
+Source: [Design System v0.6](https://www.figma.com/design/kl19d4xA5nP4cFl0BegHL2/Design-System-v0.6).
+Exports were read from frames 1288:771, 1261:25, 1261:264, 1135:392, and 1196:78.
+The Figma file was not modified. Values and properties are a curated snapshot,
+not an exhaustive audit. The colour comparison uses resolved theme bindings.
+Refresh the local exports and page content when the source system changes.
+The coded repository was inspected read-only for the companion engineering page.
+Neither page claims full implementation parity, usage metrics, or tested
+accessibility. The UIkit build and tests were not run for this showcase.
+
+## Engineering case study
+
+The Build portfolio links to `design-system-build.html`. Both case studies have
+Design / Build navigation linking directly to their companion page. The
+engineering page reuses the section navigation and image dialog from the Design
+page, but explains architecture, component contracts, tokens, documentation,
+test definitions, and known alignment work. Code snippets and diagrams are
+explicitly illustrative, not live UIkit demos.
+
+Storybook actions in the introduction and closing section link to the
+[live component explorer](https://drewv-js.github.io/DV-UIkit/).
+Repository actions in both sections link to the
+[public source repository](https://github.com/drewv-js/DV-UIkit).
+Public source access does not imply public npm package access, passing tests,
+or verified accessibility results.
 
 Kindred, Table Journey, and Form & Field are explicitly labelled concept
 placeholders, not completed projects. Replace their visuals and briefs with real

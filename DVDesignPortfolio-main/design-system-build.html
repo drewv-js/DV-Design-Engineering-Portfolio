@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172623">
+  <meta name="description" content="The engineering side of DV UIkit: Stencil Web Components, shared design tokens, framework integration, Storybook documentation, and implementation trade-offs.">
+  <title>DV UIkit | Build Case Study | Drew Valla</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="design-system.css">
+  <script src="design-system.js" defer></script>
+</head>
+<body class="case-page engineering-case" data-mode="build">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="index.html?view=build" aria-label="Drew Valla home">dv<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="index.html?view=build#build-work">All builds</a>
+      <a href="index.html?view=build#about">About</a>
+      <a class="nav-contact" href="design-system.html">Design perspective <span aria-hidden="true">&#8599;</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="case-hero wrap" aria-labelledby="case-title">
+      <a class="case-back" href="index.html?view=build#build-work">&#8592; Back to builds</a>
+      <nav class="project-perspectives" aria-label="Design system perspective">
+        <a href="design-system.html">Design</a>
+        <a href="design-system-build.html" aria-current="page">Build</a>
+      </nav>
+      <div class="eyebrow"><span class="dot"></span> DV UIKIT / ENGINEERING CASE STUDY / V0.1.0</div>
+      <h1 id="case-title">One foundation.<br><em>More ways to build.</em></h1>
+      <div class="case-intro">
+        <p>Turning a practical UI system into reusable software. Web Components at the core, shared design tokens underneath, and integration paths for different application environments.</p>
+        <dl class="case-facts"><div><dt>PROJECT</dt><dd>DV UIkit</dd></div><div><dt>CREATED BY</dt><dd>Drew Valla</dd></div><div><dt>CORE STACK</dt><dd>Stencil / TypeScript / Tailwind</dd></div><div><dt>DISTRIBUTION</dt><dd>Private npm package</dd></div></dl>
+      </div>
+      <div class="resource-panel" aria-labelledby="resources-title">
+        <div><h2 id="resources-title">Explore the implementation</h2><p id="resources-note">Try the real components in the live Storybook or explore the source on GitHub.</p></div>
+        <div class="resource-actions"><a href="https://github.com/drewv-js/DV-UIkit">Repository <span>Explore source code &#8599;</span></a><a href="https://drewv-js.github.io/DV-UIkit/">Storybook <span>Explore live components &#8599;</span></a></div>
+      </div>
+      <div class="engineering-cover">
+        <span class="eyebrow">IMPLEMENTATION MAP / NOT A LIVE DEMO</span>
+        <div class="engineering-pipeline"><div><span>FOUNDATIONS</span><strong>Design tokens</strong><small>CSS / JSON / Tailwind outputs</small></div><span aria-hidden="true">&#8594;</span><div><span>CORE</span><strong>Web Components</strong><small>Stencil + TypeScript</small></div><span aria-hidden="true">&#8594;</span><div><span>CONSUMPTION</span><strong>HTML / React / Vue</strong><small>Example apps &amp; framework adapters</small></div></div>
+        <p>A simplified map of the repository's package structure. Core components are reused rather than independently rebuilt for each framework.</p>
+      </div>
+    </section>
+
+    <div class="case-layout wrap">
+      <aside class="case-sidebar"><details class="contents" open><summary>On this page</summary><nav aria-label="Project sections">
+        <a href="#overview">01 &nbsp; Overview</a>
+        <a href="#architecture">02 &nbsp; Architecture</a>
+        <a href="#contract">03 &nbsp; Figma to code</a>
+        <a href="#tokens">04 &nbsp; Tokens &amp; themes</a>
+        <a href="#documentation">05 &nbsp; Developer experience</a>
+        <a href="#reliability">06 &nbsp; Reliability</a>
+        <a href="#next">07 &nbsp; Trade-offs &amp; next steps</a>
+      </nav></details></aside>
+      <div class="case-body">
+        <section id="overview" class="case-section" aria-labelledby="overview-title">
+          <span class="eyebrow">01 / THE ENGINEERING PERSPECTIVE</span>
+          <h2 id="overview-title">The interface is only the beginning.</h2>
+          <p>DV UIkit is a reusable UI library intended for projects owned by its author. Its design counterpart defines the visual parts; the codebase adds component APIs, rendered states, form behaviour, framework integration, and documentation.</p>
+          <p>Instead of building a separate component implementation for each application stack, the repository centres on Stencil Web Components. React and Vue packages provide integration layers, with example applications for HTML, React, and Vue.</p>
+          <div class="case-stats"><div><strong>Core</strong><span>Stencil Web Components</span></div><div><strong>Tokens</strong><span>Shared styling vocabulary</span></div><div><strong>Docs</strong><span>Storybook &amp; usage examples</span></div></div>
+          <p class="case-note">This is a source-based engineering walkthrough, not a claim of production adoption or measured impact. The repository's builds and tests have not been executed as part of this portfolio review.</p>
+        </section>
+
+        <section id="architecture" class="case-section" aria-labelledby="architecture-title">
+          <span class="eyebrow">02 / ARCHITECTURE</span>
+          <h2 id="architecture-title">Separate responsibilities.<br>A shared implementation.</h2>
+          <p>The workspace separates token generation, core components, and framework-facing packages. Root scripts coordinate the build and compatibility outputs.</p>
+          <div class="component-directory">
+            <article><h3>Design tokens</h3><p>Produces CSS custom properties, a JSON token output, and a Tailwind-compatible output for shared styling.</p></article>
+            <article><h3>Core components</h3><p>Stencil and TypeScript define custom elements, their APIs, component styles, stories, and specs.</p></article>
+            <article><h3>Framework packages</h3><p>React and Vue integration packages sit alongside the core, rather than replacing it with separate visual implementations.</p></article>
+            <article><h3>Consumer applications</h3><p>HTML, React, and Vue example apps provide places to demonstrate consuming the library.</p></article>
+          </div>
+          <pre class="code-panel" aria-label="Simplified source repository structure"><code>packages/
+  design-tokens/   shared values and generated outputs
+  core/            components, stories, styles, specs
+  react/           React wrapper package
+  vue/             Vue integration package
+apps/
+  html/            plain HTML example
+  react/           React example
+  vue/             Vue example</code></pre>
+          <p class="case-note">The diagram and tree describe organisation. They do not establish that every framework has identical behaviour or has passed the same verification.</p>
+        </section>
+
+        <section id="contract" class="case-section" aria-labelledby="contract-title">
+          <span class="eyebrow">03 / FROM FIGMA TO A COMPONENT CONTRACT</span>
+          <h2 id="contract-title">The same intention.<br>A different kind of specification.</h2>
+          <p>A Figma property describes a design configuration. A coded component needs a usable API and real behaviour. The Button is a useful example of where those two contracts meet.</p>
+          <div class="token-table-wrap" role="region" aria-label="Button design to code mapping" tabindex="0"><table><caption>Observed Button mappings, not a visual-parity certification</caption><thead><tr><th scope="col">Figma</th><th scope="col">Implementation</th></tr></thead><tbody><tr><th scope="row">Primary / Secondary / Text</th><td><code>variant="primary | secondary | text"</code></td></tr><tr><th scope="row">Default / Small size</th><td><code>size="md | sm"</code></td></tr><tr><th scope="row">Disabled / Loading states</th><td><code>disabled</code> / <code>loading</code> properties</td></tr><tr><th scope="row">Label</th><td>Default slot content</td></tr><tr><th scope="row">Start / End icon</th><td><code>startIcon</code> / <code>endIcon</code> slots</td></tr></tbody></table></div>
+          <div class="component-story">
+            <div><h3>Make the contract explicit.</h3><p>The Button API also exposes a native button type, a form association, full-width layout, and a programmatic focus method. These are implementation concerns that go beyond a visual variant matrix.</p><p>The source declares Shadow DOM with focus delegation and form-associated behaviour. Those decisions need real browser testing, not just a matching screenshot.</p></div>
+            <figure><a class="image-link" href="assets/design-system/buttons.png" data-enlarge aria-label="Enlarge Figma Button reference"><img src="assets/design-system/buttons.png" width="1518" height="768" loading="lazy" alt="The Figma Button matrix used as the design-side reference for the component API mapping."><span class="image-hint" aria-hidden="true">FIGMA REFERENCE / ENLARGE &#8599;</span></a><figcaption>Design reference only. This image is not a running code example.</figcaption></figure>
+          </div>
+          <pre class="code-panel" aria-label="Example Web Component usage"><code>&lt;dv-button variant="primary" size="md" type="button"&gt;
+  Save changes
+&lt;/dv-button&gt;</code></pre>
+          <p class="case-note">Illustrative usage of the inspected API. Registration and styles must be loaded by the consuming application; this snippet is not executed on this page.</p>
+          <details class="case-detail"><summary>Why a state is not always a prop</summary><p>Figma includes a Hover state for inspecting its appearance. In a working interface, hover is normally triggered by pointer interaction rather than manually selecting a state property. Disabled and loading states, by contrast, are part of the Button's public API.</p></details>
+        </section>
+
+        <section id="tokens" class="case-section" aria-labelledby="tokens-title">
+          <span class="eyebrow">04 / TOKENS &amp; THEMES</span>
+          <h2 id="tokens-title">Carry the vocabulary into code.</h2>
+          <p>The token package defines semantic roles for backgrounds, content, borders, and status feedback. Its build produces multiple outputs so those values can be consumed without copying literal colours into every component.</p>
+          <div class="token-flow"><span>Token source</span><span aria-hidden="true">&#8594;</span><span>Generated CSS / JSON / Tailwind</span><span aria-hidden="true">&#8594;</span><span>Component styling</span></div>
+          <p>Dark-theme overrides are generated under an ancestor with <code>data-theme="dark"</code>. Theme selection changes the shared variables rather than requiring a separately authored component for each colour scheme.</p>
+          <pre class="code-panel" aria-label="Dark theme consumption example"><code>&lt;div data-theme="dark"&gt;
+  &lt;dv-button type="button"&gt;Save changes&lt;/dv-button&gt;
+&lt;/div&gt;</code></pre>
+          <p class="case-note">This is a usage example, not a live theme demo. The case study's dark palette belongs to the portfolio and is not evidence of UIkit's theme rendering.</p>
+          <details class="case-detail"><summary>Alignment is still a maintenance task</summary><p>The repository's Figma sync audit identifies gaps in theme coverage and competing status-colour definitions. Source inspection also shows different success-colour literals in the token source and generator. A single canonical palette and a verified component map are still important next steps.</p></details>
+        </section>
+
+        <section id="documentation" class="case-section" aria-labelledby="documentation-title">
+          <span class="eyebrow">05 / DEVELOPER EXPERIENCE</span>
+          <h2 id="documentation-title">A library needs a way in.</h2>
+          <p>Storybook is already configured for the Web Components library. It registers the built custom elements, uses generated component metadata, and includes interactive controls and documentation.</p>
+          <ol class="practice-notes"><li><h3>Explore a component</h3><p>The Button stories include a playground and configured examples such as Secondary, Text, small sizes, and icon arrangements.</p></li><li><h3>Understand its API</h3><p>Generated metadata supplies information about properties, events, slots, and methods to the documentation layer.</p></li><li><h3>See integration examples</h3><p>The Button documentation generates React and Vue usage snippets alongside its Web Component stories.</p></li></ol>
+          <p>The package also defines entrypoints for component registration, styles, React usage, and a Tailwind preset. Its distribution is intentionally private; public installation is not being offered here.</p>
+          <p class="case-note">The public Storybook is now available through the links on this page. You can explore the hosted library without private npm access; publishing the showcase does not establish that all tests or accessibility checks have passed.</p>
+        </section>
+
+        <section id="reliability" class="case-section" aria-labelledby="reliability-title">
+          <span class="eyebrow">06 / RELIABILITY &amp; INTERACTION</span>
+          <h2 id="reliability-title">Show the evidence.<br>Be clear about its limits.</h2>
+          <p>The source includes component specs and shared interaction utilities. The distinction here is between what exists in the repository and what has been verified in a running browser.</p>
+          <div class="component-directory">
+            <article><h3>Textfield specs</h3><p>Inspected tests cover defaults, custom properties, disabled state, helper text, input types, and error-message rendering.</p></article>
+            <article><h3>Dialog &amp; focus utilities</h3><p>Dialog specs and a shared focus-trapping utility provide material for a future keyboard-interaction demonstration.</p></article>
+            <article><h3>Workspace checks</h3><p>Scripts configure linting, type-checking, component specs, compatibility checks, and consumer-app smoke checks.</p></article>
+            <article><h3>Storybook test workflow</h3><p>A configured workflow builds the stories, serves them, and invokes the Storybook test runner.</p></article>
+          </div>
+          <p class="case-note evidence-note"><strong>Verification status:</strong> source and test definitions inspected. No test run, coverage percentage, accessibility conformance, or performance result is claimed on this page.</p>
+        </section>
+
+        <section id="next" class="case-section case-next" aria-labelledby="next-title">
+          <span class="eyebrow">07 / TRADE-OFFS &amp; NEXT STEPS</span>
+          <h2 id="next-title">Reuse is a starting point.<br>Consistency takes upkeep.</h2>
+          <p>A Web Component core avoids duplicating the visual implementation across frameworks, but integration layers, form behaviour, and focus management still need deliberate validation. Shared tokens reduce repetition, but only if their generated values remain aligned.</p>
+          <ol class="practice-notes"><li><h3>Reconcile design and code</h3><p>Agree on canonical tokens and component names, then document missing or intentionally different variants.</p></li><li><h3>Validate the real interactions</h3><p>Run targeted tests and browser checks for forms, focus, keyboard use, themes, and framework consumption before presenting verified outcomes.</p></li><li><h3>Keep the deeper exploration current</h3><p>The repository and Storybook are available. Keep the source, hosted showcase, and case study aligned as the library evolves.</p></li></ol>
+          <div class="resource-actions closing-resources"><a href="https://github.com/drewv-js/DV-UIkit">Repository <span>Explore source code &#8599;</span></a><a href="https://drewv-js.github.io/DV-UIkit/">Storybook <span>Explore live components &#8599;</span></a></div>
+          <div class="case-actions"><a class="case-button" href="design-system.html">See the Design perspective <span aria-hidden="true">&#8599;</span></a><a class="case-secondary" href="index.html?view=build#build-work">&#8592; Back to builds</a></div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="wrap"><a class="footer-name" href="index.html?view=build">Drew Valla<span>.</span></a><span>DV UIkit / The engineering perspective</span><a href="#main">Back to top &#8593;</a></footer>
+  <dialog class="image-dialog" aria-labelledby="image-title">
+    <div class="image-dialog-header"><h2 id="image-title">Design detail</h2><button type="button" class="close-image" aria-label="Close enlarged image">&#10005;</button></div>
+    <img alt="">
+    <a class="original-image" href="assets/design-system/buttons.png" target="_blank" rel="noopener">Open full-size image in a new tab &#8599;</a>
+  </dialog>
+</body>
+</html>

@@ -7,6 +7,7 @@
   <meta name="description" content="Drew Valla's design portfolio. Thoughtful interfaces, original concepts, and a little curiosity.">
   <title>Drew Valla | Design Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="design-system.css">
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -40,11 +41,19 @@
 
     <section class="work wrap" id="work" aria-labelledby="work-title" data-view="design">
       <div class="section-heading">
-        <h2 id="work-title">A few things taking shape<span>.</span></h2>
-        <span class="small-label">THE CONCEPT COLLECTION / 01&ndash;03</span>
+        <h2 id="work-title">Selected work &amp; explorations<span>.</span></h2>
+        <span class="small-label">A SYSTEM, AND A FEW POSSIBILITIES</span>
       </div>
-      <p class="section-note">Original directions to explore. These are concept placeholders, not completed client work.</p>
+      <p class="section-note">An existing design system, followed by three clearly labelled concept previews.</p>
       <div class="project-grid">
+        <article class="project project-wide system-feature">
+          <a class="project-art system-cover" href="design-system.html" aria-label="Explore the Design System v0.6 project">
+            <div class="system-cover-copy"><span class="eyebrow">FIGMA LIBRARY / V0.6</span><strong>Everyday interfaces.<br>Shared foundations.</strong><p>A practical SaaS design system. Tokens, themes, and reusable components.</p></div>
+            <img src="assets/design-system/project-settings.png" width="1440" height="1362" loading="lazy" alt="Project Settings screen assembled using the design system.">
+            <span class="preview-tag">DESIGN SYSTEM / PROJECT SHOWCASE</span><span class="art-arrow" aria-hidden="true">&#8599;</span>
+          </a>
+          <div class="project-caption"><div><h3><a href="design-system.html">Design System v0.6</a></h3><p>A shared language for simple SaaS applications.</p></div><span class="project-type">SYSTEMS &amp; COMPONENT DESIGN</span></div>
+        </article>
         <article class="project">
           <a class="project-art art-sage" href="#project-kindred" data-project="kindred" aria-label="Explore Kindred concept preview">
             <div class="mock-window kindred" aria-hidden="true">
@@ -79,8 +88,12 @@
     </section>
 
     <section class="work wrap build-work" id="build-work" aria-labelledby="build-title" data-view="build" hidden>
-      <div class="section-heading"><h2 id="build-title">Behind the experience<span>.</span></h2><span class="small-label">BUILD LOG / 01</span></div>
-      <p class="section-note">Working interfaces and the decisions behind them. Starting with the site you're using.</p>
+      <div class="section-heading"><h2 id="build-title">Behind the experience<span>.</span></h2><span class="small-label">BUILD LOG / 01&ndash;02</span></div>
+      <p class="section-note">A reusable component library, the site you're using, and the decisions behind them.</p>
+      <article class="build-project uikit-build-card">
+        <a class="build-diagram uikit-diagram" href="design-system-build.html" aria-label="Explore the DV UIkit engineering case study"><span>01 / SHARED FOUNDATIONS, WORKING SOFTWARE</span><strong>DV UIkit<span aria-hidden="true">.</span></strong><code>tokens &rarr; components &rarr; applications</code><span class="uikit-card-action">READ THE CASE STUDY &#8599;</span></a>
+        <div class="build-description"><span class="eyebrow">ENGINEERING CASE STUDY</span><h3><a href="design-system-build.html">One foundation. More ways to build.</a></h3><p>A Stencil Web Component library with shared tokens, framework integration, and Storybook documentation. Explore its architecture and the bridge from Figma to code.</p><div class="skill-tags"><span>Stencil / TypeScript</span><span>Design tokens</span><span>React / Vue integration</span></div><a class="uikit-read-link" href="design-system-build.html">Explore DV UIkit <span aria-hidden="true">&#8599;</span></a></div>
+      </article>
       <article class="build-project">
         <div class="build-diagram" aria-hidden="true"><span>01 / ONE PORTFOLIO, TWO PERSPECTIVES</span><div class="diagram-modes"><b>Design</b><span>&#8646;</span><b>Build</b></div><code>interaction + state + accessibility</code></div>
         <div class="build-description"><span class="eyebrow">LIVE ON THIS SITE</span><h3>The two-sided portfolio</h3><p>A lightweight front-end build that connects design exploration with UX engineering. Try the switch above, then look behind the interaction.</p><div class="skill-tags"><span>HTML / CSS / JavaScript</span><span>Responsive UI</span><span>Keyboard interaction</span></div>

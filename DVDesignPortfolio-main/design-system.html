@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="Drew Valla's SaaS design system: a guided look at Figma tokens, light and dark themes, component states, and a composed product interface.">
+  <title>Design System v0.6 | Drew Valla</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="design-system.css">
+  <script src="design-system.js" defer></script>
+</head>
+<body class="case-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="index.html?view=design" aria-label="Drew Valla home">dv<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="index.html?view=design#work">All projects</a>
+      <a href="index.html?view=design#about">About</a>
+      <a class="nav-contact" href="https://www.figma.com/design/kl19d4xA5nP4cFl0BegHL2/Design-System-v0.6?node-id=1186-22">View in Figma <span aria-hidden="true">&#8599;</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="case-hero wrap" aria-labelledby="case-title">
+      <a class="case-back" href="index.html?view=design#work">&#8592; Back to projects</a>
+      <nav class="project-perspectives" aria-label="Design system perspective">
+        <a href="design-system.html" aria-current="page">Design</a>
+        <a href="design-system-build.html">Build</a>
+      </nav>
+      <div class="eyebrow"><span class="dot"></span> DESIGN SYSTEM / FIGMA LIBRARY / V0.6</div>
+      <h1 id="case-title">Simple by design.<br><em>Consistent by system.</em></h1>
+      <div class="case-intro">
+        <p>A practical foundation for SaaS interfaces. Shared tokens, reusable components, and thoughtful states that bring the everyday parts of a product together.</p>
+        <dl class="case-facts"><div><dt>PROJECT</dt><dd>Design System v0.6</dd></div><div><dt>CREATED BY</dt><dd>Drew Valla</dd></div><div><dt>FOCUS</dt><dd>UI systems &amp; component design</dd></div><div><dt>THIS VIEW</dt><dd>The Figma design library</dd></div></dl>
+      </div>
+      <figure class="case-cover">
+        <a class="image-link" href="assets/design-system/project-settings.png" data-enlarge aria-label="Enlarge Project Settings interface">
+          <img src="assets/design-system/project-settings.png" alt="Project Settings screen combining navigation, tabs, a project form, visibility controls, notification settings, summary information, and save actions." width="1440" height="1362" fetchpriority="high">
+          <span class="image-hint" aria-hidden="true">ENLARGE IMAGE &#8599;</span>
+        </a>
+        <figcaption>An actual composition from the Figma file: Project Settings. A design example, not a live SaaS product.</figcaption>
+      </figure>
+    </section>
+
+    <div class="case-layout wrap">
+      <aside class="case-sidebar">
+        <details class="contents" open>
+          <summary>On this page</summary>
+          <nav aria-label="Project sections">
+            <a href="#overview">01 &nbsp; Overview</a>
+            <a href="#structure">02 &nbsp; System structure</a>
+            <a href="#foundations">03 &nbsp; Foundations &amp; tokens</a>
+            <a href="#themes">04 &nbsp; Themes</a>
+            <a href="#components">05 &nbsp; Components</a>
+            <a href="#in-practice">06 &nbsp; In practice</a>
+            <a href="#next">07 &nbsp; Looking ahead</a>
+          </nav>
+        </details>
+      </aside>
+      <div class="case-body">
+        <section id="overview" class="case-section" aria-labelledby="overview-title">
+          <span class="eyebrow">01 / THE OVERVIEW</span>
+          <h2 id="overview-title">Built for the everyday interface.</h2>
+          <p>Forms, settings, navigation, and feedback make up much of a SaaS application's daily experience. This system is geared toward those practical needs rather than a highly expressive marketing aesthetic.</p>
+          <p>The design work lives in a Figma library, with a coded counterpart maintained in a separate repository. This page focuses on the design side: how the library is organised, what its components expose, and how the parts fit together.</p>
+          <div class="case-stats"><div><strong>28</strong><span>Component pages</span></div><div><strong>2</strong><span>Documented theme modes</span></div><div><strong>1</strong><span>Composed example page</span></div></div>
+          <p class="case-note">Scope shown here: the supplied v0.6 file. These are library contents, not adoption or impact metrics. No user-testing or accessibility-certification claims are made.</p>
+        </section>
+
+        <section id="structure" class="case-section" aria-labelledby="structure-title">
+          <span class="eyebrow">02 / SYSTEM STRUCTURE</span>
+          <h2 id="structure-title">A library with a clear path through it.</h2>
+          <p>The file separates Themes, an Example Page, and individual component pages. Within the Button and Textfield pages, component definitions sit alongside state annotations and usage examples.</p>
+          <ol class="system-path">
+            <li><span>01</span><h3>Shared values</h3><p>Colour roles, spacing, type, radii, and strokes.</p></li>
+            <li><span>02</span><h3>Reusable parts</h3><p>Named components with configurable variants and states.</p></li>
+            <li><span>03</span><h3>Product context</h3><p>A settings screen assembled from component instances.</p></li>
+          </ol>
+          <p class="case-note">This diagram explains the relationships; it is not a screenshot of the file's page hierarchy.</p>
+        </section>
+
+        <section id="foundations" class="case-section" aria-labelledby="foundations-title">
+          <span class="eyebrow">03 / FOUNDATIONS &amp; TOKENS</span>
+          <h2 id="foundations-title">Name the purpose, not just the colour.</h2>
+          <p>The theme examples reference roles such as <code>surface/canvas</code>, <code>background/brand</code>, and <code>border/focus</code>. Naming a role makes the intended use easier to follow than an isolated hex value.</p>
+          <div class="token-flow"><span class="token-chip"><i style="--swatch:#343d68"></i>#343D68</span><span aria-hidden="true">&#8594;</span><code>background/brand</code><span aria-hidden="true">&#8594;</span><span>Primary action surface</span></div>
+          <div class="foundation-grid">
+            <article><h3>Colour roles</h3><ul class="swatch-list"><li><i style="--swatch:#f2f2f2"></i><span>Canvas<small>surface/canvas &middot; #F2F2F2</small></span></li><li><i style="--swatch:#f8f9ff"></i><span>Default surface<small>background/default &middot; #F8F9FF</small></span></li><li><i style="--swatch:#343d68"></i><span>Brand surface<small>background/brand &middot; #343D68</small></span></li><li><i style="--swatch:#2b2b2b"></i><span>Default text<small>text/default &middot; #2B2B2B</small></span></li></ul></article>
+            <article><h3>Type &amp; dimensions</h3><p>Sora Regular and Bold appear in the inspected components' text styles. Shared values give those components a common vocabulary.</p><dl class="dimension-list"><div><dt>Spacing</dt><dd>4 / 8 / 12 / 16 / 20</dd></div><div><dt>Font sizes</dt><dd>12 / 14 / 16 / 20</dd></div><div><dt>Radii</dt><dd>4 / 8 / 24 / full</dd></div><div><dt>Strokes</dt><dd>1 / 2 / 3</dd></div></dl></article>
+          </div>
+          <details class="case-detail"><summary>A closer look at token naming</summary><p>The inspected theme frames expose both short names, such as <code>background/brand</code>, and theme-prefixed bindings, such as <code>--dv-theme-color-background-brand</code>. The dark frame resolves that binding to a different value. The comparison below uses the resolved theme bindings rather than assuming every short-name style changes with the mode.</p></details>
+          <p class="case-note">Values above are a selection from the inspected theme frames, not a complete token inventory. The portfolio's own typography remains separate from the system's Sora styles.</p>
+        </section>
+
+        <section id="themes" class="case-section" aria-labelledby="themes-title">
+          <span class="eyebrow">04 / LIGHT &amp; DARK</span>
+          <h2 id="themes-title">Same roles. A different environment.</h2>
+          <p>The Themes page places the same collection of controls, feedback, and overlays in Light and Dark modes. Comparing matching examples makes the colour relationships visible without changing the component's purpose.</p>
+          <div class="theme-pair">
+            <figure><a class="image-link" href="assets/design-system/theme-light.png" data-enlarge aria-label="Enlarge light theme examples"><img src="assets/design-system/theme-light.png" width="520" height="1563" loading="lazy" alt="Light theme sheet with colour swatches, buttons, fields, selection controls, tabs, progress, feedback, menu, and modal."><span class="image-hint" aria-hidden="true">LIGHT / ENLARGE &#8599;</span></a><figcaption>Light: pale surfaces and a deep blue brand accent.</figcaption></figure>
+            <figure><a class="image-link" href="assets/design-system/theme-dark.png" data-enlarge aria-label="Enlarge dark theme examples"><img src="assets/design-system/theme-dark.png" width="520" height="1563" loading="lazy" alt="Dark theme sheet showing the matching controls and overlays on dark surfaces with lighter brand accents."><span class="image-hint" aria-hidden="true">DARK / ENLARGE &#8599;</span></a><figcaption>Dark: deeper surfaces and lighter brand values.</figcaption></figure>
+          </div>
+          <div class="token-table-wrap" role="region" aria-label="Resolved theme colour comparison" tabindex="0"><table><caption>Selected resolved theme bindings</caption><thead><tr><th scope="col">Role</th><th scope="col">Light</th><th scope="col">Dark</th></tr></thead><tbody><tr><th scope="row">Canvas</th><td>#F2F2F2</td><td>#10131D</td></tr><tr><th scope="row">Default surface</th><td>#F8F9FF</td><td>#171B28</td></tr><tr><th scope="row">Raised surface</th><td>#F8F9FF</td><td>#202638</td></tr><tr><th scope="row">Brand surface</th><td>#343D68</td><td>#9DADEB</td></tr><tr><th scope="row">Default content</th><td>#2B2B2B</td><td>#E8ECF6</td></tr><tr><th scope="row">Default border</th><td>#C2C5DF</td><td>#58627D</td></tr></tbody></table></div>
+        </section>
+
+        <section id="components" class="case-section" aria-labelledby="components-title">
+          <span class="eyebrow">05 / THE COMPONENT LIBRARY</span>
+          <h2 id="components-title">Breadth in the library.<br>Detail in the states.</h2>
+          <p>There are 28 named component pages in the file. Grouped here by purpose, they cover common product building blocks. The two examples below show how variants and properties make those parts reusable.</p>
+          <div class="component-directory">
+            <article><h3>Actions &amp; input</h3><p>Button, Checkbox, Radio, Switch, Dropdown, Textfield, Textarea</p></article>
+            <article><h3>Navigation</h3><p>Bread Crumbs, Nav Bar, Side Nav, Tabs, Pagination, Menu</p></article>
+            <article><h3>Feedback &amp; overlays</h3><p>Alert, Toast, Loader, Progress Bar, Tooltip, Modal, Drawer</p></article>
+            <article><h3>Content &amp; layout</h3><p>Avatar, Badge, Card, Divider, Metadata List, Settings Row, Table, Tag</p></article>
+          </div>
+          <article class="component-story">
+            <div><span class="eyebrow">COMPONENT STUDY / 01</span><h3>DvButton</h3><p>Three visual variants establish action hierarchy. Two sizes and four states make the button useful beyond its resting appearance.</p><dl class="property-list"><div><dt>Variant</dt><dd>Primary / Secondary / Text</dd></div><div><dt>State</dt><dd>Default / Hover / Disabled / Loading</dd></div><div><dt>Size</dt><dd>Default / Small</dd></div><div><dt>Properties</dt><dd>Label, start icon, end icon</dd></div></dl></div>
+            <figure><a class="image-link" href="assets/design-system/buttons.png" data-enlarge aria-label="Enlarge button variants and state matrix"><img src="assets/design-system/buttons.png" width="1518" height="768" loading="lazy" alt="Figma button matrix organised into Primary, Secondary, and Text columns, with default and small size groups."><span class="image-hint" aria-hidden="true">VIEW STATE MATRIX &#8599;</span></a><figcaption>Original Figma component sheet, including its size annotations.</figcaption></figure>
+          </article>
+          <article class="component-story reverse">
+            <div><span class="eyebrow">COMPONENT STUDY / 02</span><h3>DvTextfield</h3><p>A field is more than a bordered box. Label, value, and helper text form its anatomy; Focus and Error states communicate what needs attention.</p><dl class="property-list"><div><dt>State</dt><dd>Default / Hover / Focus / Disabled / Error</dd></div><div><dt>Size</dt><dd>Default / Small</dd></div><div><dt>Text properties</dt><dd>Label / Value / Helper text</dd></div><div><dt>Visibility</dt><dd>Show label / Show helper</dd></div></dl></div>
+            <figure><a class="image-link" href="assets/design-system/textfields.png" data-enlarge aria-label="Enlarge textfield anatomy and states"><img src="assets/design-system/textfields.png" width="1710" height="856" loading="lazy" alt="Figma textfield sheet showing labelled Default, Hover, Focus, Disabled, and Error states in two sizes."><span class="image-hint" aria-hidden="true">VIEW FIELD STATES &#8599;</span></a><figcaption>State definitions and size groups from the Textfield page.</figcaption></figure>
+          </article>
+          <p class="case-note">These are Figma state definitions. Keyboard behaviour, screen-reader support, and coded state parity need to be assessed in the implementation, not inferred from these images.</p>
+        </section>
+
+        <section id="in-practice" class="case-section" aria-labelledby="practice-title">
+          <span class="eyebrow">06 / IN PRACTICE</span>
+          <h2 id="practice-title">The parts, working as a whole.</h2>
+          <p>The Example Page brings the system into a familiar SaaS task: editing project settings. Navigation provides context, the main column contains editable details, and a supporting column holds summary information.</p>
+          <figure class="practice-image"><a class="image-link" href="assets/design-system/project-settings.png" data-enlarge aria-label="Enlarge complete Project Settings composition"><img src="assets/design-system/project-settings.png" width="1440" height="1362" loading="lazy" alt="Complete Project Settings design with a two-column form and summary layout, ending with Cancel and Save changes actions."><span class="image-hint" aria-hidden="true">EXPLORE THE COMPOSITION &#8599;</span></a><figcaption>A full-size export of the existing Figma example. Enlarge to inspect the details.</figcaption></figure>
+          <ol class="practice-notes"><li><h3>Orientation before editing</h3><p>Global navigation, breadcrumbs, project identity, and tabs establish where the settings belong.</p></li><li><h3>Related controls stay together</h3><p>Project details, access, and notification settings are separated into readable groups. Settings Row and Metadata List provide repeatable arrangements.</p></li><li><h3>A clear place to finish</h3><p>A dedicated action row places Cancel and Save changes together, with guidance above the page's final edge.</p></li></ol>
+        </section>
+
+        <section id="next" class="case-section case-next" aria-labelledby="next-title">
+          <span class="eyebrow">07 / LOOKING AHEAD</span>
+          <h2 id="next-title">A foundation to build on.</h2>
+          <p>This version shows a system at both component and screen level: named colour roles, two documented themes, configurable states, and a composed product example.</p>
+          <h3>What still needs to be evaluated</h3>
+          <p>The next review should examine the coded library alongside Figma: component parity, actual keyboard and assistive-technology behaviour, contrast across states, and how the patterns hold up in responsive screens. Those outcomes are not established by this design showcase.</p>
+          <div class="case-actions"><a class="case-button" href="https://www.figma.com/design/kl19d4xA5nP4cFl0BegHL2/Design-System-v0.6?node-id=1260-22">Explore the Figma file <span aria-hidden="true">&#8599;</span></a><a class="case-secondary" href="design-system-build.html">Explore the Build perspective &#8599;</a><a class="case-secondary" href="index.html?view=design#work">&#8592; Back to projects</a></div>
+          <p class="case-note">Figma access depends on the file's sharing permissions. The examples on this page can be viewed without a Figma account.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="wrap"><a class="footer-name" href="index.html?view=design">Drew Valla<span>.</span></a><span>Design systems / The Figma perspective</span><a href="#main">Back to top &#8593;</a></footer>
+  <dialog class="image-dialog" aria-labelledby="image-title">
+    <div class="image-dialog-header"><h2 id="image-title">Design detail</h2><button type="button" class="close-image" aria-label="Close enlarged image">&#10005;</button></div>
+    <img alt="">
+    <a class="original-image" href="assets/design-system/project-settings.png" target="_blank" rel="noopener">Open full-size image in a new tab &#8599;</a>
+  </dialog>
+</body>
+</html>
