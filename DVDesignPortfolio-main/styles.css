@@ -1,7 +1,7 @@
 @charset "UTF-8";
 [hidden]{display:none!important}
 .site-notice{margin-top:-1px;background:#e8ecdf;color:#3f5139;border-block:1px solid #d5dcc9}
-.site-notice p{margin-block:0;padding-block:14px;font-size:15px;line-height:1.8}
+.site-notice p{margin-block:0;padding-block:14px;font-size:15px;line-height:1.8;text-align:center}
 .site-notice strong{font-weight:600;margin-right:5px}
 body[data-mode="build"] .site-notice{background:#243d33;color:#d4e4d7;border-color:#3a5148}
 @media(max-width:700px){.site-notice p{font-size:14px;padding-block:12px}.site-notice strong{display:block;margin-right:0}}
